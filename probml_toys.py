@@ -1,4 +1,4 @@
-from toys import toys
+from .toys import toys
 import os
 class probml_toys(object):
     """docstring for probml_toys."""
