@@ -6,7 +6,7 @@ from magic import show_and_run as sar
 from google.colab import files
 from google.colab.patches import cv2_imshow
 import cv2
-import nbimporter
+
 
 DISCLAIMER = 'WARNING : Editing in VM - changes lost after reboot!!'
 
