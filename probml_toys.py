@@ -3,7 +3,10 @@ import os
 class probml_toys(object):
     """docstring for probml_toys."""
     def __init__(self, arg):
-        pass
+        print("Init")
+        os.system('git clone https://github.com/probml/pyprobml &> /dev/null')
+        os.system('pip3 install nbimporter')
+
     @staticmethod
     def save_fig(fname,verbose=False, *args, **kwargs):
         if "PYPROBML" in os.environ:
@@ -25,3 +28,5 @@ class probml_toys(object):
       #print(toys)
       #print(inspect.getmembers(toys))
       toys.show_and_run(script,i)
+
+p=probml_toys()
