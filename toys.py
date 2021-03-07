@@ -55,10 +55,10 @@ class toys():
         os.system('git config --global user.email ""')
         os.system('git config --global user.name ""')
     @staticmethod
-    def show_image(img_path,size=600):
+    def show_image(img_path,size=None,ratio=(0.5,0.5)):
 
         img = cv2.imread(img_path, cv2.IMREAD_UNCHANGED)
-        img=cv2.resize(img,(size,size))
+        img=cv2.resize(img,size,fx=ratio[0],fy=ratio[1])
         cv2_imshow(img)
 
 
