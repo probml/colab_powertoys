@@ -17,8 +17,8 @@ class probml_toys():
         verbose=False):
         toys.git_ssh(git_command, email,username,verbose)
     @staticmethod
-    def show_image(img_path,size=600):
-      toys.show_image(img_path,size)
+    def show_image(img_path,*args, **kwargs):
+      toys.show_image(img_path)
     @staticmethod
     def show_and_run(script, i=True):
       import inspect
