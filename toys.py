@@ -54,16 +54,52 @@ class toys():
         os.system('rm -r ~/.ssh/')
         os.system('git config --global user.email ""')
         os.system('git config --global user.name ""')
+    
     @staticmethod
-    def show_image(img_path,size=None,ratio=(0.5,0.5)):
-
+    def show_image(img_path,size=None,ratio=None):
+        if not size:
+            size=[0,600]
         img = cv2.imread(img_path, cv2.IMREAD_UNCHANGED)
-        img=cv2.resize(img,size,fx=ratio[0],fy=ratio[1])
+        img=toys.image_resize(img,height=size[1])
+        if ratio:
+            img=cv2.resize(img,size,fx=ratio[0],fy=ratio[1])
         cv2_imshow(img)
 
 
     @staticmethod
     def show_and_run(script, i=True):
         sar(script, i)
+    @staticmethod
+    def image_resize(image, width = None, height = None, inter = cv2.INTER_AREA):
+        # From https://stackoverflow.com/questions/44650888/resize-an-image-without-distortion-opencv
+        # initialize the dimensions of the image to be resized and
+        # grab the image size
+        dim = None
+        (h, w) = image.shape[:2]
+
+        # if both the width and height are None, then return the
+        # original image
+        if width is None and height is None:
+            return image
+
+        # check to see if the width is None
+        if width is None:
+            # calculate the ratio of the height and construct the
+            # dimensions
+            r = height / float(h)
+            dim = (int(w * r), height)
+
+        # otherwise, the height is None
+        else:
+            # calculate the ratio of the width and construct the
+            # dimensions
+            r = width / float(w)
+            dim = (width, int(h * r))
+
+        # resize the image
+        resized = cv2.resize(image, dim, interpolation = inter)
+
+        # return the resized image
+        return resized
 
 

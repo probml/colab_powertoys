@@ -21,9 +21,6 @@ class probml_toys():
       toys.show_image(img_path,*args, **kwargs)
     @staticmethod
     def show_and_run(script, i=True):
-      import inspect
-      #print(toys)
-      #print(inspect.getmembers(toys))
       toys.show_and_run(script,i)
         
 p=probml_toys()
