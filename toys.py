@@ -58,7 +58,7 @@ class toys():
     @staticmethod
     def show_image(img_path,size=None,ratio=None):
         if not size:
-            size=[0,600]
+            size=[0,480]
         img = cv2.imread(img_path, cv2.IMREAD_UNCHANGED)
         img=toys.image_resize(img,height=size[1])
         if ratio:
