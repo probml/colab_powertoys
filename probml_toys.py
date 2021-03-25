@@ -13,7 +13,7 @@ class probml_toys():
             figdir = '../figures' # default directory one above where code lives
         toys.save_fig(fname, figdir,verbose,*args, **kwargs)
     @staticmethod
-    def git_ssh(git_command, email="murphyk@gmail.com", username="probml",
+    def git_ssh(git_command, email=None, username=None,
         verbose=False):
         toys.git_ssh(git_command, email,username,verbose)
     @staticmethod
